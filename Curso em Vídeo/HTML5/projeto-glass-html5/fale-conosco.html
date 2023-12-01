@@ -54,24 +54,25 @@
             <fieldset id="usuario">
                 <!--cria um especie de boarda com a legend como título e o resto do conteúdo dentro-->
                 <legend>Identificação do Usuário</legend>
-                <p>Nome: <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"></p>
-                <p>Senha: <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="Senha"></p>
-                <p>E-mail: <input type="email" name="tMail" id="cMail" size="40" maxlength="40"> </p>
+                <p><label for="cNome">Nome</label> <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"></p>
+                <p><label for="cSenha">Senha</label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="Senha"></p>
+                <p><label for="cMail">E-mail</label> <input type="email" name="tMail" id="cMail" size="40" maxlength="40" placeholder="E-mail"> </p>
                 <fieldset id="sexo">
                     <legend>Sexo:</legend>
                     <!--Para que o tipo radio (marcar com bolinha) funcione do jeito esperado, ambos devem possuir o mesmo name e id-->
-                    <input type="radio" name="tSexo" id="cSexo"> Masculino
-                    <input type="radio" name="tSexo" id="cSexo"> Feminino
+                    <input type="radio" name="tSexo" id="cMasc"><label for="cMasc">Masculino</label><br>
+                    <input type="radio" name="tSexo" id="cFem"><label for="cFem">Feminino</label>
+                    <!--O label serve para direcionar um texto para o seu radio, e assim o usuario pode selecionar o radio ao apertar no texto-->
                 </fieldset>
-                <p>Data de Nascimento:</p>
+                <p>Data de Nascimento <input type="date" name="tDate" id="cDate"></p>
             </fieldset>
 
             <fieldset>
                 <legend id="endereco">Endereço do Usuário</legend>
-                Logradouro:
-                Número:
-                Estado:
-                Cidade:
+                <p>Logradouro: <input type="text" name="tRua" id="cRua" size="13"></p>
+                <p>Número:</p>
+                <p>Estado:</p>
+                <p>Cidade:</p>
             </fieldset>
 
             <fieldset>
