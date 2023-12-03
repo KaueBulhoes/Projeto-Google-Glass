@@ -243,3 +243,9 @@ footer#rodape{
     padding-top: 5px;
     text-align: center;
 }
+
+video#video{
+    display: block;
+    position: relative;
+    width: 370px;
+}

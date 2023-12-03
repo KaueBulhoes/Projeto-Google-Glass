@@ -9,6 +9,13 @@
     <link rel="stylesheet" type="text/css" href="./_css/form.css">
 </head>
 <script language="javascript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total(){
+        var qtd = parseInt(document.getElementById('cQtd').value);
+        tot = qtd*1500;
+        document.getElementById('cTot').value = tot;
+    }
+</script>
 
 <body>
     <div id="interface">
@@ -50,7 +57,7 @@
             </article>
         </section>
 
-        <form action="">
+        <form method="post" id="fContato" action="mailto:contato@cursoemvideo.com" oninput="calc_total()">
             <fieldset id="usuario">
                 <!--cria um especie de boarda com a legend como título e o resto do conteúdo dentro-->
                 <legend>Identificação do Usuário</legend>
@@ -67,30 +74,48 @@
                 <p>Data de Nascimento <input type="date" name="tDate" id="cDate"></p>
             </fieldset>
 
-            <fieldset>
-                <legend id="endereco">Endereço do Usuário</legend>
+            <fieldset id="endereco">
+                <legend>Endereço do Usuário</legend>
                 <p>Logradouro: <input type="text" name="tRua" id="cRua" size="20" maxlength="80" placeholder="Avenida, Rua, Travesa, ..."></p>
                 <p>Número: <input type="number" name="tNumber" id="cNumber" min="0" max="99999"></p>
-                <p>Estado:</p>
-                <p>Cidade:</p>
+                <p><label for="cEst">Estado:</label>
+                    <select name="tEst" id="cEst">
+                        <optgroup label="Nordeste">
+                            <option value="RN">Rio Grande do Norte</option> <!--é possível deixar um marcado usando a tag selected-->
+                        <option value="PB">Paraíba</option>
+                        <option value="PE">Pernambuco</option>
+                        </optgroup>
+                        <!--também é possivel colocar tudo num grupo maior com <optgroup>, não será opção-->
+                    </select></p>
+                <p><label for="cCid">Cidade:</label>
+                    <input type="text" name="tCid" id="cCid" placeholder="Digite sua Cidade" size="20" maxlength="40" list="cidades"></p>
+                <datalist id="cidades">
+                    <option value="Rio de Janeiro"></option>
+                    <option value="Nova Iguaçu"></option>
+                    <option value="Niterói"></option>
+                </datalist>
+                <!--get é um meio mais rápido e menos seguro pois deixa as informações mais visíveis, já o método post é mais lento porém mais seguro-->
             </fieldset>
 
-            <fieldset>
-                <legend id="mensagem">Mensagem do Usuário</legend>
-                Grau de Urgência:
-                Mensagem:
+            <fieldset id="mensagem">
+                <legend>Mensagem do Usuário</legend>
+                <p><label for="cUrg">Grau de Urgência:</label> Min
+                <input type="range" name="tUrg" id="cUrg" min="0" max="10" step="1">Max</p>
+                <p><label for="cMsg">Mensagem:</label>
+                <textarea name="tMsg" id="cMsg" cols="45" rows="10" placeholder="Insira sua mensagem"></textarea></p>
+                <!--text area usada para textos maiores-->
             </fieldset>
 
-            <fieldset>
-                <legend id="pedido">Quero um Google Glass</legend>
-                Gostaria de adquirir um Google Glass quando disponível
-                Cor:
-                Quantidade:
-                Preço Total: R$
+            <fieldset id="pedido">
+                <legend>Quero um Google Glass</legend>
+                <p><input type="checkbox" name="tPed" id="cPed">
+                    <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                <p><label for="cCor">Cor:</label> <input type="color" name="tCor" id="cCor"></p>
+                <p><label for="cQtd">Quantidade:</label><input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"></p>
+                <p><label for="cTot">Preço Total: R$</label><input type="text" name="tTot" id="cTot" placeholder="Total a pagar" readonly></p>
             </fieldset>
 
-
-            [BOTÃO ENVIAR]
+            <input type="image" src="./_imagens/botao-enviar.png">
         </form>
 
         <footer id="rodape">
